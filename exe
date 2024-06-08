@@ -1,18 +1,18 @@
 #!/bin/sh
 # Run setup first to setup cli
 
+function log_wrapper() {
+    printf "[exe] %s\n" $1
+}
+
 function check_setup () {
     if [ ! -e "cache.leo" ];
     then
-        printf "Setting up flow\n"
+        log_wrapper "Setting up"
         echo "alias exe='./exe'" >> ~/.bashrc
-        echo "alias exe='./exe'" >> ~/.bashrc
-        echo "hit=1" >> ./cache.leo
+        echo "alias exe='./exe'" >> ~/.zshrc
+        echo "hit=1" > ./cache.leo # always replace
     fi
-}
-
-function log_wrapper() {
-    printf "[exe] %s\n" $1
 }
 
 check_setup
