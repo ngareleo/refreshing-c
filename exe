@@ -1,0 +1,22 @@
+#!/bin/sh
+# Run setup first to setup cli
+
+function check_setup () {
+    if [ ! -e "cache.leo" ];
+    then
+        printf "Setting up flow\n"
+        echo "alias exe='./exe'" >> ~/.bashrc
+        echo "alias exe='./exe'" >> ~/.bashrc
+        echo "hit=1" >> ./cache.leo
+    fi
+}
+
+function log_wrapper() {
+    printf "[exe] %s\n" $1
+}
+
+check_setup
+log_wrapper "Compiling"
+gcc main.c -o out
+log_wrapper "Executing"
+./out
