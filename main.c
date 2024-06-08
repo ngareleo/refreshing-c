@@ -1,7 +1,9 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "lib.c"
+#include "./src/basic.c"
+
 
 int main (void) {
-    exit(0);
+    test_cgetline();
+    return 0;
 }
